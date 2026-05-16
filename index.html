@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boxplot Shift Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="Interactive boxplot comparison">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Boxplot Comparison</p>
+            <h1>Overlap or Shift?</h1>
+          </div>
+          <div class="status-card" aria-live="polite">
+            <span id="statusLabel" class="status-pill pending">Ready</span>
+            <strong id="statusText">Adjust the boxplots, then check the relationship.</strong>
+          </div>
+        </header>
+
+        <div class="chart-wrap">
+          <svg id="chart" viewBox="0 0 980 660" role="img" aria-labelledby="chartTitle chartDesc">
+            <title id="chartTitle">Two draggable right-skew boxplots</title>
+            <desc id="chartDesc">
+              Compare two boxplots. Drag either group horizontally to see overlap change into shift.
+            </desc>
+          </svg>
+        </div>
+
+        <div class="control-panel">
+          <div class="control-block">
+            <label for="groupASlider">Group A position</label>
+            <input id="groupASlider" type="range" min="-24" max="40" value="0" step="1" />
+          </div>
+          <div class="control-block">
+            <label for="shiftSlider">Group B position</label>
+            <input id="shiftSlider" type="range" min="-24" max="40" value="18" step="1" />
+          </div>
+          <button id="checkButton" type="button" aria-label="Check overlap or shift">Check</button>
+          <button id="resetButton" type="button" aria-label="Reset comparison">Reset</button>
+        </div>
+
+        <section class="metrics-grid" aria-label="Summary metrics">
+          <article>
+            <span>Overlap</span>
+            <strong id="overlapValue">--</strong>
+          </article>
+          <article>
+            <span>Median shift</span>
+            <strong id="medianShiftValue">--</strong>
+          </article>
+          <article>
+            <span>Shape</span>
+            <strong id="shapeValue">A: right | B: right</strong>
+          </article>
+        </section>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
